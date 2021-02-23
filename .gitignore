@@ -1,1 +1,5 @@
+# Local build artifacts
 x/gen/file/
+
+# Generated browser bundle
+public/app.js
