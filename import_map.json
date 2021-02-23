@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.88.0/",
+    "mimetypes": "https://deno.land/x/mimetypes@v1.0.0/mod.ts",
+    "react": "https://esm.sh/react@17.0.1",
+    "react-dom": "https://esm.sh/react-dom@17.0.1",
+    "react-dom-server": "https://esm.sh/react-dom@17.0.1/server"
+  }
+}

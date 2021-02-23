@@ -1,0 +1,18 @@
+{
+  "headers": {
+    "report-to": "{\"max_age\":604800,\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=dpbQ6JmFOZhxVxXCi%2B9zZrSpQPrlKjvPU5ee7i0W4ANXl3pcL7wCqhJDRqAye3Jemwoqj6858YqIB4cFOugNoDs3Lrrt2mG%2B9RVi\"}]}",
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-cache-status": "MISS",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "set-cookie": "__cfduid=ddba00270df691e89da125becdc1890601614105326; expires=Thu, 25-Mar-21 18:35:26 GMT; path=/; domain=.esm.sh; HttpOnly; SameSite=Lax; Secure",
+    "nel": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}",
+    "server": "cloudflare",
+    "cf-ray": "62630bf0eae82d73-KBP",
+    "vary": "Origin, Accept-Encoding",
+    "date": "Tue, 23 Feb 2021 18:35:27 GMT",
+    "content-type": "application/javascript",
+    "last-modified": "Sat, 16 Jan 2021 12:01:57 GMT",
+    "cf-request-id": "0871c5ca8f00002d73318ed000000001"
+  },
+  "url": "https://cdn.esm.sh/v15/react-dom@17.0.1/esnext/server.js"
+}
