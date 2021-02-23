@@ -1,3 +1,0 @@
-/* esm.sh - react-dom@17.0.1/server */
-export * from "https://cdn.esm.sh/v15/react-dom@17.0.1/esnext/server.js";
-export { default } from "https://cdn.esm.sh/v15/react-dom@17.0.1/esnext/server.js";
