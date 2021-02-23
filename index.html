@@ -174,7 +174,20 @@
               ```
 
               ```js
-              ...
+              import React from "react";
+
+              const App = () => {
+                const [count, setCount] = React.useState(0);
+                return (
+                  <div>
+                    <h1>Hello Deno Land! !</h1>
+                    <button onClick={() => setCount(count + 1)}>Click the 🦕</button>
+                    <p>You clicked the 🦕 {count} times</p>
+                  </div>
+                );
+              };
+
+              export default App;
               ```
             </script>
           </section>
@@ -192,7 +205,15 @@
               ```
 
               ```js
-              ...
+              import React from "react";
+              import ReactDOM from "react-dom";
+              import App from "./app.tsx";
+
+              ReactDOM.hydrate(
+                <App />,
+                //@ts-ignore
+                document.getElementById("root")
+              );
               ```
             </script>
           </section>
@@ -210,7 +231,23 @@
               ```
 
               ```js
-              ...
+              const ssr = (component: React.FC) => (req: ServerRequest) =>
+              req.respond({
+                status: 200,
+                body: `<!doctype html>
+                  <html>
+                    <head>
+                      <link rel="stylesheet" href="style.css" />
+                      <script type="module" src="app.js">< /script>
+                    </head>
+                    <body>
+                      ${ReactDOMServer.renderToString(<App />)}
+                    </body>
+                  </html>`,
+                headers: new Headers({
+                  "Content-Type": "text/html; charset=utf8",
+                }),
+              });
               ```
             </script>
           </section>

@@ -5898,4 +5898,4 @@ const App = ()=>{
         onClick: ()=>setCount(count + 1)
     }, "Click the \u{1f995}"), De.createElement("p", null, "You clicked the \u{1f995} ", count, " times"));
 };
-zc.hydrate(De.createElement(App, null), document.getElementById("root"));
+zc.hydrate(De.createElement(App, null), document.body);
