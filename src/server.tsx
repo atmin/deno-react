@@ -30,12 +30,8 @@ const ssr = (component: React.FC) => (
   req.respond({ status: 200, body, headers });
 };
 
-const notFound = (req: ServerRequest) =>
-  req.respond({ status: 404, body: "404 - not found" });
-
 const staticFile = async (req: ServerRequest) => {
   const path = `${Deno.cwd()}/public${req.url}`;
-  console.log("about to", path);
   try {
     req.respond({
       body: await Deno.open(path),
@@ -44,7 +40,7 @@ const staticFile = async (req: ServerRequest) => {
       }),
     });
   } catch (err) {
-    notFound(req);
+    req.respond({ status: 404, body: "404 - not found" });
   }
 };
 
@@ -71,6 +67,6 @@ const router = (req: ServerRequest) => {
 console.log(`🚀 Server is running on http://localhost:${PORT}`);
 
 for await (const req of server) {
-  console.log(`url `, req.url);
+  console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
   router(req);
 }
