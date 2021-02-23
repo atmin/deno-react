@@ -1,22 +1,27 @@
-intexit() {
-    # Kill all subprocesses (all processes in the current process group)
-    kill -HUP -$$
-}
-
-hupexit() {
-    # HUP'd (probably by intexit)
-    echo
-    echo "Interrupted"
-    exit
-}
-
-trap hupexit HUP
-trap intexit INT
+export DENO_DIR=./x/
 
 # Browser bundle
-deno bundle --importmap=import_map.json --unstable src/browser.tsx public/app.js &
+deno bundle --unstable \
+
+  --import-map=import_map.json
+
+  --lock=lock.json \
+  --cached-only \
+
+  src/browser.tsx \
+  public/app.js \
+
+&& \
 
 # Server
-deno run --importmap=import_map.json --unstable --allow-net --allow-read src/server.tsx &
+deno run --unstable \
 
-wait
+  --import-map=import_map.json \
+
+  --lock=lock.json \
+  --cached-only \
+
+  --allow-net \
+  --allow-read \
+
+  src/server.tsx

@@ -13,10 +13,28 @@ hupexit() {
 trap hupexit HUP
 trap intexit INT
 
+export DENO_DIR=./x/
+
 # Browser bundle
-deno bundle --watch --importmap=import_map.json --unstable src/browser.tsx public/app.js &
+deno bundle --unstable \
+
+  --watch \
+
+  --import-map=import_map.json
+
+  src/browser.tsx \
+  public/app.js &
 
 # Server
-deno run --watch --importmap=import_map.json --unstable --allow-net --allow-read src/server.tsx &
+deno run --unstable \
+
+  --watch \
+
+  --import-map=import_map.json \
+
+  --allow-net \
+  --allow-read \
+
+  src/server.tsx &
 
 wait
