@@ -154,6 +154,7 @@
               ```shell
               # ls -l src/
               app.tsx
+              app.test.tsx
               browser.tsx
               server.tsx
               ```
@@ -167,6 +168,7 @@
               ```shell [2]
               # ls -l src/
               app.tsx
+              app.test.tsx
               browser.tsx
               server.tsx
               ```
@@ -181,9 +183,10 @@
             <script type="text/template">
               ## Browser code
 
-              ```shell [3]
+              ```shell [4]
               # ls -l src/
               app.tsx
+              app.test.tsx
               browser.tsx
               server.tsx
               ```
@@ -198,9 +201,10 @@
             <script type="text/template">
               ## Server code
 
-              ```shell [4]
+              ```shell [5]
               # ls -l src/
               app.tsx
+              app.test.tsx
               browser.tsx
               server.tsx
               ```
@@ -208,6 +212,16 @@
               ```js
               ...
               ```
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Testing
+
+              `deno test`
             </script>
           </section>
         </section>
