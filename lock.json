@@ -1,0 +1,14 @@
+{
+  "https://cdn.esm.sh/v15/@types/prop-types@15.7.3/index.d.ts": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+  "https://cdn.esm.sh/v15/@types/react-dom@17.0.0/index.d.ts": "7510cc8b93dfc5cdd90b2c4ab45bb06ac71c4a2801be10713895c49c46b87eca",
+  "https://cdn.esm.sh/v15/@types/react@17.0.0/global.d.ts": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+  "https://cdn.esm.sh/v15/@types/react@17.0.0/index.d.ts": "7825fbf82a5da5b290a313dd593cfc35faa64ec1f656f5e1c443d98991c4f145",
+  "https://cdn.esm.sh/v15/csstype@3.0.6/index.d.ts": "2421504d4ad8486abdb522b7bcdd4caafbcf4a320cdf7b19e780df258c639d7f",
+  "https://cdn.esm.sh/v15/react-dom@17.0.1/esnext/react-dom.js": "67fc376eac37146479ce41cf448810f3d35a12420d1df2fe2c2b527058d318cc",
+  "https://cdn.esm.sh/v15/react@17.0.1/esnext/react.js": "4fea14f032fbfb20d38bb28ed820741b1554c11005d8dbe8177d71bd63d8c057",
+  "https://deno.land/std@0.88.0/fmt/colors.ts": "db22b314a2ae9430ae7460ce005e0a7130e23ae1c999157e3bb77cf55800f7e4",
+  "https://deno.land/std@0.88.0/testing/_diff.ts": "961eaf6d9f5b0a8556c9d835bbc6fa74f5addd7d3b02728ba7936ff93364f7a3",
+  "https://deno.land/std@0.88.0/testing/asserts.ts": "7fae8128125106ddf8e4b3ac84cc3b5fb2378e3fbf8ba38947ebe24faa002ce2",
+  "https://esm.sh/react-dom@17.0.1": "2d242cd451e2437db80b1599ca7837ef207a118bb4266c5f9b9630b6f3bca58e",
+  "https://esm.sh/react@17.0.1": "3eec5d51a1a2b5cf5514ddc8d92776aafe799f6b789e88ca7050bfc4d91bc5ac"
+}
