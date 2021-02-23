@@ -1,12 +1,12 @@
 {
   "headers": {
-    "cache-control": "private, max-age=600",
-    "server": "esm.sh",
     "content-length": "196",
+    "date": "Tue, 23 Feb 2021 15:02:18 GMT",
     "content-type": "application/javascript; charset=utf-8",
+    "server": "esm.sh",
+    "cache-control": "private, max-age=600",
     "vary": "Origin",
-    "x-typescript-types": "https://cdn.esm.sh/v15/@types/react-dom@17.0.0/index.d.ts",
-    "date": "Tue, 23 Feb 2021 14:31:46 GMT"
+    "x-typescript-types": "https://cdn.esm.sh/v15/@types/react-dom@17.0.0/index.d.ts"
   },
   "url": "https://esm.sh/react-dom@17.0.1"
 }

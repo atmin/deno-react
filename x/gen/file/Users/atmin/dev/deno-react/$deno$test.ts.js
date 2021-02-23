@@ -1,3 +1,0 @@
-import "file:///Users/atmin/dev/deno-react/src/app.test.tsx";
-await Deno[Deno.internal].runTests({ "failFast": false, "reportToConsole": true, "disableLog": false });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiJGRlbm8kdGVzdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIiRkZW5vJHRlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxxREFBcUQsQ0FBQztBQUU3RCxNQUFNLElBQUksQ0FBQyxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUMsUUFBUSxDQUFDLEVBQUMsVUFBVSxFQUFDLEtBQUssRUFBQyxpQkFBaUIsRUFBQyxJQUFJLEVBQUMsWUFBWSxFQUFDLEtBQUssRUFBQyxDQUFDLENBQUMifQ==
