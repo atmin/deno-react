@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./app.tsx";
+import { App, AppProps } from "./app.tsx";
 
-ReactDOM.hydrate(
-  <App />,
-  //@ts-ignore
-  document.body
-);
+//@ts-ignore
+const { body } = document;
+const props = JSON.parse(body.dataset.props) as AppProps;
+
+ReactDOM.hydrate(<App {...props} />, body);

@@ -4,9 +4,9 @@ import { serve } from "std/http/server.ts";
 import { ServerRequest } from "std/http/server.ts";
 import { mime } from "mimetypes";
 
-import App from "./app.tsx";
+import { App, AppProps } from "./app.tsx";
 
-const ssr = (component: React.FC) => (req: ServerRequest) =>
+const ssr = (req: ServerRequest, props: AppProps) =>
   req.respond({
     status: 200,
     body: `<!doctype html>
@@ -15,8 +15,8 @@ const ssr = (component: React.FC) => (req: ServerRequest) =>
           <link rel="stylesheet" href="style.css" />
           <script type="module" src="app.js"></script>
         </head>
-        <body>
-          ${ReactDOMServer.renderToString(<App />)}
+        <body data-props="${JSON.stringify(props).replace(/"/g, "&quot;")}">
+          ${ReactDOMServer.renderToString(<App {...props} />)}
         </body>
       </html>`,
     headers: new Headers({
@@ -41,19 +41,20 @@ const staticFile = async (req: ServerRequest) => {
 const PORT = 8000;
 const server = serve({ port: PORT });
 
-interface Route {
-  name: string;
-  path: RegExp;
-  handler: (req: ServerRequest, match: RegExpExecArray) => void;
-}
-
-const routes: Route[] = [{ name: "root", path: /^\/$/, handler: ssr(App) }];
+const routes: Array<
+  [RegExp, (req: ServerRequest, match: RegExpExecArray) => void]
+> = [
+  [
+    /^\/(\d+)?$/,
+    (req, match) => ssr(req, { counter: match.length ? Number(match[1]) : 0 }),
+  ],
+];
 
 const router = (req: ServerRequest) => {
   for (let route of routes) {
-    const reg = route.path;
-    const match = reg.exec(req.url);
-    if (match) return route.handler(req, match);
+    const [regexp, handler] = route;
+    const match = regexp.exec(req.url);
+    if (match) return handler(req, match);
   }
   return staticFile(req);
 };
