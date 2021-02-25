@@ -23,39 +23,60 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <section data-markdown>
-            <script type="text/template">
-              # Deno / React application
 
-              <p>
-                <img
-                  src="https://deno.land/logo.svg"
-                  style="vertical-align: middle"
-                  width="64px"
-                  height="64px" /> +
-                <img
-                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
-                  style="vertical-align: middle"
-                  width="64px"
-                  height="64px"
-                /> =
-                <img
-                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMjAwMTA5MDQvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMtU1ZHLTIwMDEwOTA0L0RURC9zdmcxMC5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSItNSAtNSA4MDUgODA1Ij4KCTxnIGlkPSJZaW5ZYW5nIiBmaWxsPSIjMDAwIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIj4KCQk8dGl0bGU+WWluLVlhbmcsIGJ5IEFkYW0gU3RhbmlzbGF2PC90aXRsZT4KCQk8ZGVzYz5UaGUgZW50aXJlIGdyYXBoaWMgaXMgZHJhd24gYXMgYSBzaW5nbGUgcGF0aCBmaWxsZWQgd2l0aCBibGFjayAob3IgYW55IG90aGVyIGNvbG9yIHlvdSBjaGFuZ2UgdGhlIHZhbHVlIG9mIOKAnGZpbGzigJ0gaW4gbGluZSA0KS4gVGhlIG90aGVyIGhhbGYsIHVzdWFsbHkgc2hvd24gaW4gd2hpdGUgaXMgY3JlYXRlZCBoZXJlIGFzIGEgaG9sZSBpbiB0aGUgcGF0aC4gVGhhdCBtZWFucyBpdCBpcyBjb21wbGV0ZWx5IHRyYW5zcGFyZW50LCBhbmQgaGFzIHdoYXRldmVyIGNvbG9yIGl0cyBiYWNrZ3JvdW5kIGhhcy4gVG8gYWNoaWV2ZSB0aGlzLCBub3QganVzdCB3aXRoIFNWRyBidXQgd2l0aCBvdGhlciB2ZWN0b3IgZm9ybWF0cywgYW55IGJsYWNrIHBvcnRpb24gb2YgdGhlIHBhdGggaXMgZHJhd24gY291bnRlcmNsb2Nrd2lzZSwgYW55IOKAnHdoaXRl4oCdIHBvcnRpb24gY2xvY2t3aXNlLiBBbHNvLCB0aGlzIGdyYXBoaWMgaXMgdGFraW5nIGFkdmFudGFnZSBvZiB0aGUga2FwcGEgY29uc3RhbnQgZGVzY3JpYmVkIGluIG15IGUtYm9vayBCw6l6aWVyIENpcmNsZXMgYW5kIG90aGVyIHNoYXBlcywgZnJlZWx5IGRvd25sb2FkYWJsZSBmcm9tIGh0dHBzOi8vd3d3LnNtYXNod29yZHMuY29tL2Jvb2tzL3ZpZXcvNDgzNTc4IC48L2Rlc2M+CgoJCTwhLS0gTm90ZSB0byBzZWxmOiBSZWxhdGl2ZSBCw6l6aWVyIGRpZmZlcmVuY2VzICjigJxj4oCdKSBhcmUgZGlmZmVyZW5jZXMgb2YgYSBwb2ludCBmcm9tIHRoZSBTVEFSVElORyBwb2ludCBvZiB0aGUgY3VydmUgc2VnbWVudCwgbm90IGZyb20gdGhlIG1vc3QgcmVjZW50IHBvaW50LiAtLT4KCQk8cGF0aCBkPSJNNDAwIDBDMTc5LjA4NiAwIDAgMTc5LjA4NiAwIDQwMCAwIDYyMC45MTQgMTc5LjA4NiA4MDAgNDAwIDgwMCA2MjAuOTE0IDgwMCA4MDAgNjIwLjkxNCA4MDAgNDAwIDgwMCAxNzkuMDg2IDYyMC45MTQgMCA0MDAgMHpNNDAwIDEwQzE4NC42MDkgMTAgMTAgMTg0LjYwOSAxMCA0MDAgMTAgNjE1LjM5MSAxODQuNjA5IDc5MCA0MDAgNzkwIDI5Mi4zMDQgNzkwIDIwNSA2ODIuMzA0IDIwNSA2MDAgMjA1IDQ5Mi4zIDI5Mi4zMDQgNDAwIDQwMCA0MDAgNTA3LjcgNDAwIDYwMCAyOTIuMzA0IDYwMCAyMDAgNjAwIDkyLjMwNCA1MDcuNyAxMCA0MDAgMTB6TTQwMCA2NjVjMzUuODk1IDAgNjUtMjkuMTA1IDY1LTY1IDAtMzUuODk1LTI5LjEwNS02NS02NS02NS0zNS44OTUgMC02NSAyOS4xMDUtNjUgNjUgMCAzNS44OTUgMjkuMTA1IDY1IDY1IDY1ek00MDAgMTMyYy0zNy41NTUgMC02OCAzMC40NDUtNjggNjggMCAzNy41NTUgMzAuNDQ1IDY4IDY4IDY4IDM3LjU1NSAwIDY4LTMwLjQ0NSA2OC02OCAwLTM3LjU1NS0zMC40NDUtNjgtNjgtNjh6Ii8+Cgk8L2c+Cjwvc3ZnPgo="
-                  style="vertical-align: middle"
-                  width="64px"
-                  height="64px"
-                />
-              </p>
 
-              - server-side rendered
-              - client-hydrated
-              - pure Deno, no NPM ecosystem
-              - sane dependency management
-              - out-of-the-box smooth DX on VSCode
-            </script>
-          </section>
+
+
+
+
+
+        <section data-markdown>
+          <script type="text/template">
+            # Deno / React application
+
+            <p>
+              <img
+                src="https://deno.land/logo.svg"
+                style="vertical-align: middle"
+                width="64px"
+                height="64px" /> +
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
+                style="vertical-align: middle"
+                width="64px"
+                height="64px"
+              /> =
+              <img
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMjAwMTA5MDQvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMtU1ZHLTIwMDEwOTA0L0RURC9zdmcxMC5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSItNSAtNSA4MDUgODA1Ij4KCTxnIGlkPSJZaW5ZYW5nIiBmaWxsPSIjMDAwIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMCIgZmlsbC1ydWxlPSJldmVub2RkIj4KCQk8dGl0bGU+WWluLVlhbmcsIGJ5IEFkYW0gU3RhbmlzbGF2PC90aXRsZT4KCQk8ZGVzYz5UaGUgZW50aXJlIGdyYXBoaWMgaXMgZHJhd24gYXMgYSBzaW5nbGUgcGF0aCBmaWxsZWQgd2l0aCBibGFjayAob3IgYW55IG90aGVyIGNvbG9yIHlvdSBjaGFuZ2UgdGhlIHZhbHVlIG9mIOKAnGZpbGzigJ0gaW4gbGluZSA0KS4gVGhlIG90aGVyIGhhbGYsIHVzdWFsbHkgc2hvd24gaW4gd2hpdGUgaXMgY3JlYXRlZCBoZXJlIGFzIGEgaG9sZSBpbiB0aGUgcGF0aC4gVGhhdCBtZWFucyBpdCBpcyBjb21wbGV0ZWx5IHRyYW5zcGFyZW50LCBhbmQgaGFzIHdoYXRldmVyIGNvbG9yIGl0cyBiYWNrZ3JvdW5kIGhhcy4gVG8gYWNoaWV2ZSB0aGlzLCBub3QganVzdCB3aXRoIFNWRyBidXQgd2l0aCBvdGhlciB2ZWN0b3IgZm9ybWF0cywgYW55IGJsYWNrIHBvcnRpb24gb2YgdGhlIHBhdGggaXMgZHJhd24gY291bnRlcmNsb2Nrd2lzZSwgYW55IOKAnHdoaXRl4oCdIHBvcnRpb24gY2xvY2t3aXNlLiBBbHNvLCB0aGlzIGdyYXBoaWMgaXMgdGFraW5nIGFkdmFudGFnZSBvZiB0aGUga2FwcGEgY29uc3RhbnQgZGVzY3JpYmVkIGluIG15IGUtYm9vayBCw6l6aWVyIENpcmNsZXMgYW5kIG90aGVyIHNoYXBlcywgZnJlZWx5IGRvd25sb2FkYWJsZSBmcm9tIGh0dHBzOi8vd3d3LnNtYXNod29yZHMuY29tL2Jvb2tzL3ZpZXcvNDgzNTc4IC48L2Rlc2M+CgoJCTwhLS0gTm90ZSB0byBzZWxmOiBSZWxhdGl2ZSBCw6l6aWVyIGRpZmZlcmVuY2VzICjigJxj4oCdKSBhcmUgZGlmZmVyZW5jZXMgb2YgYSBwb2ludCBmcm9tIHRoZSBTVEFSVElORyBwb2ludCBvZiB0aGUgY3VydmUgc2VnbWVudCwgbm90IGZyb20gdGhlIG1vc3QgcmVjZW50IHBvaW50LiAtLT4KCQk8cGF0aCBkPSJNNDAwIDBDMTc5LjA4NiAwIDAgMTc5LjA4NiAwIDQwMCAwIDYyMC45MTQgMTc5LjA4NiA4MDAgNDAwIDgwMCA2MjAuOTE0IDgwMCA4MDAgNjIwLjkxNCA4MDAgNDAwIDgwMCAxNzkuMDg2IDYyMC45MTQgMCA0MDAgMHpNNDAwIDEwQzE4NC42MDkgMTAgMTAgMTg0LjYwOSAxMCA0MDAgMTAgNjE1LjM5MSAxODQuNjA5IDc5MCA0MDAgNzkwIDI5Mi4zMDQgNzkwIDIwNSA2ODIuMzA0IDIwNSA2MDAgMjA1IDQ5Mi4zIDI5Mi4zMDQgNDAwIDQwMCA0MDAgNTA3LjcgNDAwIDYwMCAyOTIuMzA0IDYwMCAyMDAgNjAwIDkyLjMwNCA1MDcuNyAxMCA0MDAgMTB6TTQwMCA2NjVjMzUuODk1IDAgNjUtMjkuMTA1IDY1LTY1IDAtMzUuODk1LTI5LjEwNS02NS02NS02NS0zNS44OTUgMC02NSAyOS4xMDUtNjUgNjUgMCAzNS44OTUgMjkuMTA1IDY1IDY1IDY1ek00MDAgMTMyYy0zNy41NTUgMC02OCAzMC40NDUtNjggNjggMCAzNy41NTUgMzAuNDQ1IDY4IDY4IDY4IDM3LjU1NSAwIDY4LTMwLjQ0NSA2OC02OCAwLTM3LjU1NS0zMC40NDUtNjgtNjgtNjh6Ii8+Cgk8L2c+Cjwvc3ZnPgo="
+                style="vertical-align: middle"
+                width="64px"
+                height="64px"
+              />
+            </p>
+
+            - server-side rendered
+            - client-hydrated
+            - pure Deno, no NPM ecosystem
+            - sane dependency management
+            - out-of-the-box smooth DX on VSCode
+          </script>
         </section>
+
+
+
+        <section data-markdown>
+          <script type="text/template">
+            ## What this app does not provide (yet)
+
+            - CSS-in-JS
+            - IE before Edge
+            - continuous testing
+            - tsconfig.json (for DOM libs, source maps)
+            - [integrated debugging](https://deno.land/manual/getting_started/debugging_your_code)
+          </script>
+        </section>
+
+
 
         <section data-markdown>
           <script type="text/template">
@@ -65,14 +86,15 @@
               <img src="https://deno.land/logo.svg" width="64px" height="64px" />
             </p>
 
-            - single executable
-            - written in Rust
-            - embeds V8 engine
-            - URL-based ES6 modules
+            - single executable, includes tooling
+            - written in Rust, embeds V8 engine
+            - no package repositories, URL-based ES6 modules
             - TypeScript-first
-            - same author as Node
+            - same founder as Node
           </script>
         </section>
+
+
 
         <section data-markdown>
           <script type="text/template">
@@ -93,41 +115,39 @@
           </script>
         </section>
 
+
+
         <section data-markdown>
           <script type="text/template">
-            ## Dependencies
+            ## Dependency management
 
-            ```shell [4-6]
+            ```shell [5]
             # ls -l
             public/
+            run/
             src/
-            x/
             import_map.json
-            lock.json
-            *dev.sh
-            *start.sh
             ```
           </script>
         </section>
+
+
 
         <section>
           <section data-markdown>
             <script type="text/template">
               ## Utility scripts
 
-              ```shell [7-8]
-              # ls -l
-              public/
-              src/
-              x/
-              import_map.json
-              lock.json
-              *dev.sh
-              *start.sh
+              ```shell
+              # ls -l run/
+              *dev
+              *prod
               ```
             </script>
           </section>
         </section>
+
+
 
         <section>
           <section data-markdown>
@@ -137,16 +157,15 @@
               ```shell [2]
               # ls -l
               public/
+              run/
               src/
-              x/
               import_map.json
-              lock.json
-              *dev.sh
-              *start.sh
               ```
             </script>
           </section>
         </section>
+
+
 
         <section>
           <section data-markdown>
@@ -155,8 +174,7 @@
 
               ```shell
               # ls -l src/
-              app.tsx
-              app.test.tsx
+              components/
               browser.tsx
               server.tsx
               ```
@@ -167,12 +185,10 @@
             <script type="text/template">
               ## Shared application code
 
-              ```shell [2]
-              # ls -l src/
-              app.tsx
-              app.test.tsx
-              browser.tsx
-              server.tsx
+              ```shell [2-3]
+              # ls -l src/components
+              App.tsx
+              App.test.tsx
               ```
 
               ```js
@@ -201,10 +217,9 @@
             <script type="text/template">
               ## Browser code
 
-              ```shell [4]
+              ```shell [3]
               # ls -l src/
-              app.tsx
-              app.test.tsx
+              components/
               browser.tsx
               server.tsx
               ```
@@ -212,7 +227,7 @@
               ```js
               import React from "react";
               import ReactDOM from "react-dom";
-              import { App, AppProps } from "./app.tsx";
+              import { App, AppProps } from "src/components/App.tsx";
 
               //@ts-ignore
               const { body } = document;
@@ -227,10 +242,9 @@
             <script type="text/template">
               ## Server code
 
-              ```shell [5]
+              ```shell [4]
               # ls -l src/
-              app.tsx
-              app.test.tsx
+              components/
               browser.tsx
               server.tsx
               ```
@@ -258,18 +272,33 @@
           </section>
         </section>
 
+
+
         <section>
           <section data-markdown>
             <script type="text/template">
-              ## Testing
+              ## More
 
-              `deno test`
+              * `deno lint`
+              * `deno test`
+              * `deno fmt`
+              * `deno compile`
+              * `deno doc`
+              * `deno info`
+              * web frameworks
             </script>
           </section>
         </section>
+
+
+
+
+
+
+
+
       </div>
     </div>
-
     <script src="revealjs/dist/reveal.js"></script>
     <script src="revealjs/plugin/notes/notes.js"></script>
     <script src="revealjs/plugin/markdown/markdown.js"></script>
