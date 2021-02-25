@@ -37,6 +37,7 @@ deno run --unstable \
   --watch \
   --import-map=import_map.json \
   --lock=lock.json \
+  --cached-only \
   --allow-net \
   --allow-read \
   src/server.tsx &

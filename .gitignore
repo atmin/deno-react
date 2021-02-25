@@ -1,5 +1,5 @@
-# Local build artifacts
-x/gen/file/
+# Deno cache
+.deno_dir/
 
 # Generated browser bundle
 public/app.js
