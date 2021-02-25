@@ -13,22 +13,31 @@ hupexit() {
 trap hupexit HUP
 trap intexit INT
 
-export DENO_DIR=./x/
 
-# Cache dependencies
+
+export DENO_DIR=./.deno_dir
+
+# Cache browser and server dependencies
 deno cache --unstable \
   --import-map=import_map.json \
-  --lock=lock.json \
+  --lock=.lock/browser.json \
   --lock-write \
-  src/*
+  src/browser.tsx
 
-# `deno test --watch` does not yet work
+deno cache --unstable \
+  --import-map=import_map.json \
+  --lock=.lock/server.json \
+  --lock-write \
+  src/server.tsx
+
+
+# `deno test --watch` does not work yet
 
 # Browser bundle, regenerate on file change
 deno bundle --unstable \
   --watch \
   --import-map=import_map.json \
-  --lock=lock.json \
+  --lock=.lock/browser.json \
   src/browser.tsx \
   public/app.js &
 
@@ -36,10 +45,10 @@ deno bundle --unstable \
 deno run --unstable \
   --watch \
   --import-map=import_map.json \
-  --lock=lock.json \
-  --cached-only \
+  --lock=.lock/server.json \
   --allow-net \
   --allow-read \
   src/server.tsx &
+
 
 wait

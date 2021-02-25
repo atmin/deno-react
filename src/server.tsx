@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOMServer from "react-dom-server";
-import { serve } from "std/http/server.ts";
-import { ServerRequest } from "std/http/server.ts";
+import { ServerRequest, serve } from "std/http/server";
 import { mime } from "mimetypes";
 
-import { App, AppProps } from "./app.tsx";
+import { App, AppProps } from "src/components/App.tsx";
 
 const ssr = (req: ServerRequest, props: AppProps) =>
   req.respond({

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App, AppProps } from "./app.tsx";
+import { App, AppProps } from "src/components/App.tsx";
 
 //@ts-ignore
 const { body } = document;
